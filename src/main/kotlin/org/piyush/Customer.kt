@@ -1,15 +1,13 @@
 package org.piyush
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * Created by piyushchauhan on 15/06/2016.
  */
 
 @Entity
+@Table(name = "customers")
 data class Customer(
     val firstName: String = "",
     val lastName: String = "",
