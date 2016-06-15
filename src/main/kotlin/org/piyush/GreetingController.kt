@@ -18,10 +18,11 @@ class GreetingController {
     lateinit var repository: CustomerRepository
 
     @RequestMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Greeting {
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): Customer {
         val cust = Customer("Jack", "Bauer")
         repository.save(cust)
         log.info("Saved customer $cust")
-        return Greeting(counter.incrementAndGet(), "Hello, $name")
+        val greet = Greeting(counter.incrementAndGet(), "Hello, $name")
+        return cust
     }
 }

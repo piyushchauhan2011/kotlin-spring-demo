@@ -10,22 +10,8 @@ import javax.persistence.Id
  */
 
 @Entity
-class Customer {
-
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private var id: Long = 0
-    private var firstName: String = ""
-    private var lastName: String = ""
-
-    constructor() {}
-
-    constructor(firstName: String, lastName: String) {
-        this.firstName = firstName
-        this.lastName = lastName
-    }
-
-    override fun toString(): String {
-        return String.format(
-                "Customer[id=${this.id}, firstName=${this.firstName}, lastName=${lastName}]"
-        )
-    }
-}
+data class Customer(
+    val firstName: String = "",
+    val lastName: String = "",
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) val id: Long = 0
+)
